@@ -1,0 +1,41 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "People API Response Schema",
+  "type": "object",
+  "properties": {
+    "message": {
+      "type": "string"
+    },
+    "total_records": {
+      "type": "integer"
+    },
+    "total_pages": {
+      "type": "integer"
+    },
+    "previous": {
+      "anyOf": [
+        { "type": "string" },
+        { "type": "null" }
+      ]
+    },
+    "next": {
+      "anyOf": [
+        { "type": "string" },
+        { "type": "null" }
+      ]
+    },
+    "results": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "uid": { "type": "string" },
+          "name": { "type": "string" },
+          "url": { "type": "string" }
+        },
+        "required": ["uid", "name", "url"]
+      }
+    }
+  },
+  "required": ["message", "total_records", "total_pages", "previous", "next", "results"]
+}
